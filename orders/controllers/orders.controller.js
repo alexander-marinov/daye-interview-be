@@ -4,19 +4,16 @@ exports.execute = async (req, res) => {
     let materials = await db.materials.asyncFind({});
     let onStock = new Map(materials.map(m => [m.material, m.quantity]));
 
-    for (var i in req.body) {
-        let item = req.body[i];
+    for (let item of req.body) {
         let product = await db.products.asyncFindOne({ "id": item.product_id });
-        for (var s in product.specification) {
-            let ingredient = product.specification[s];
+        for (let ingredient of product.specification) {
             let stockQuantity = onStock.get(ingredient.material);
             let quantityLeft = stockQuantity - (ingredient.quantity * item.quantity);
             onStock.set(ingredient.material, quantityLeft);
         }
     }
 
-    let notEnough = false;
-    onStock.forEach((val) => notEnough = val < 0 ? true : notEnough);
+    let notEnough = Array.from(onStock.values()).some(val => val < 0);
     if (notEnough) {
         res.send({ status: "not enough materials on stock" });
         return;
