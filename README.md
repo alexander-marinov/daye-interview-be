@@ -13,7 +13,7 @@ The following endpoints are available:
 #### Materials
 - `GET http://[host]:[port]/materials` Will return a list of all available materials on stock and their quantity
 
-- `GET http://[host]:[port]/materials/{id}` Will return the quantity on stock for a specific material
+- `GET http://[host]:[port]/materials/{name}` Will return the quantity on stock for a specific material by name
 
 #### Orders
 - `POST http://[host]:[port]/orders` Sends an production order containting product IDs and quantities. When this request is executed the materials quantity is changed. The cnages can be viewed with the `/materials` endpoint.
