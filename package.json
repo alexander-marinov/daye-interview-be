@@ -1,0 +1,27 @@
+{
+  "name": "daye-interview-be",
+  "version": "1.0.0",
+  "description": "Backend Developer Technical Task",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexander-marinov/daye-interview-be.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexander-marinov/daye-interview-be/issues"
+  },
+  "homepage": "https://github.com/alexander-marinov/daye-interview-be#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "nedb-async": "^0.1.6"
+  },
+  "devDependencies": {
+    "jest": "^27.5.1"
+  }
+}
